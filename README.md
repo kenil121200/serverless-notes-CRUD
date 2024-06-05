@@ -3,7 +3,7 @@
 # Note APP -Serverless Architecture
 
 
-* *Demo URL*: [<https://kenil-patel-csci-5709-web-a1.netlify.app/>](https://kenil-patel-csci-5709-web-a1.netlify.app/)
+* *Demo URL*: [<https://serverless-note-crud.netlify.app/>](https://serverless-note-crud.netlify.app/)
 
 ## Authors
 Kenil Shaileshkumar Patel
