@@ -1,6 +1,6 @@
 
 
-# Note APP -Serverless Architecture
+# Note APP - Serverless Architecture
 
 
 * *Demo URL*: [<https://serverless-note-crud.netlify.app/>](https://serverless-note-crud.netlify.app/)
