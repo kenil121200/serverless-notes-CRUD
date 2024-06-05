@@ -1,8 +1,8 @@
 import json
 import boto3
 
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('Notes')
+dynamodb = boto3.resource('dynamodb') # Initialize DynamoDB resource using boto3
+table = dynamodb.Table('Notes') # Specify the DynamoDB table we're using
 
 def lambda_handler(event, context):
     data = json.loads(event['body'])
@@ -16,6 +16,7 @@ def lambda_handler(event, context):
         update_expression += ', imageUrl = :imageUrl'
         expression_attribute_values[':imageUrl'] = data['imageUrl']
     
+    # Update the note in the DynamoDB table
     table.update_item(
         Key={
             'id': event['rawPath'].lstrip('/')

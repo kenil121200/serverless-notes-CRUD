@@ -5,22 +5,21 @@ import json
 import os
 from botocore.exceptions import NoCredentialsError
 
+# Initialize S3 client using boto3
 s3 = boto3.client('s3')
 
 def lambda_handler(event, context):
     try:
-        print(event)
         body = json.loads(event['body'])  # parse the body into a dictionary
         file_content = base64.b64decode(body['file'])
-        print(file_content)
         original_file_name = body['filename']
         file_extension = os.path.splitext(original_file_name)[1]  # extract file extension
         file_path = str(uuid.uuid4()) + file_extension  # append file extension to UUID 
-        print(file_path)
-        bucket_name = 'notes-images-serverless-app'  
+        bucket_name = 'notes-images-serverless-app'   # Specify the S3 bucket name
 
+        # Upload the file to the S3 bucket
         s3.put_object(Body=file_content, Bucket=bucket_name, Key=file_path)
-
+        # Generate the file URL
         file_url = f"https://{bucket_name}.s3.amazonaws.com/{file_path}"
 
         
